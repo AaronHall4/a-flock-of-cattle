@@ -690,4 +690,6 @@ def characterCreation(recRace, recClass,backstory):
 	print('Wisdom:',wisdom)
 	print('Intelligence:',intelligence)
 	print('Charisma:',charisma)
+	playerName=query('What is your name? ')
+	characterName=query('What would you like to name your character?')
 
