@@ -208,7 +208,7 @@ def characterCreation(recRace, recClass):
 		proficiences+=[toolProficiency.lower(),'battleaxe','handaxe','throwing hammer','warhammer']
 		attributes+=['darkvision','Dwarven Resilience','Stonecunning']
 		languages+=['Common','Dwarvish']
-	if userRace=='elf':
+	elif userRace=='elf':
 		results=elf()
 		asi=results[0:6]
 		subType=results[6]
@@ -233,7 +233,7 @@ def characterCreation(recRace, recClass):
 			attributes+=['Sunlight Sensitivity']
 		attributes+=['Keen Senses','Fey Ancestry','Trance']
 		languages+=['Common','Elvish']
-	if userRace=='halfling':
+	elif userRace=='halfling':
 		results=halfling()
 		asi=results[0:6]
 		subType=results[6]
@@ -244,12 +244,12 @@ def characterCreation(recRace, recClass):
 		walkingSpeed=25
 		attributes+=['Lucky','Brave','Halfling Nimbleness']
 		languages+=['Common','Halfling']
-	if userRace=='human':
+	elif userRace=='human':
 		asi=[1,1,1,1,1,1]
 		walkingSpeed=30
 		language=str(input('Select an extra language to know: '))
 		languages+=['Common',language]
-	if userRace=='dragonborn':
+	elif userRace=='dragonborn':
 		results=dragonborn()
 		asi=results[0:6]
 		damageType=results[6]
@@ -257,7 +257,7 @@ def characterCreation(recRace, recClass):
 		walkingSpeed=30
 		attributes+=['Breath Weapon: '+damageType, 'Damage Resistance: '+damageType]
 		languages+=['Common','Draconic']
-	if userRace=='gnome':
+	elif userRace=='gnome':
 		results=gnome()
 		asi=results[0:6]
 		if results[7]:
@@ -269,11 +269,25 @@ def characterCreation(recRace, recClass):
 		if results[10]:
 			attributes+=['Tinker']
 		subType=results[6]
-	if userRace=='half-elf':
+	elif userRace=='half-elf':
 		results=halfelf()
 		asi=results[0:6]
 		proficiences+=results[6:8]
 		languages+=results[8]
-	if userRace=='half-orc':
-		
+		languages+=['Common','Elvish']
+		attributes+=['Darkvision','Fey Ancestry']
+		walkingSpeed=30
+	elif userRace=='half-orc':
+		asi=[2,0,1,0,0,0]
+		walkingSpeed=30
+		attributes+=['Darkvision','Relentless Endurance','Savage Attacks']
+		proficiences+=['Intimidation']
+		languages+=['Common','Orc']
+	else:
+		asi=[0,0,0,0,1,2]
+		walkingSpeed=30
+		attributes+=['Darkvision','Hellish Resistance']
+		cantrips+=['thaumaturgy']
+		languages+=['Common','Infernal']
+
 
