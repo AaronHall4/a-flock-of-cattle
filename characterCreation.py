@@ -158,7 +158,7 @@ def halfelf():
 def characterCreation(recRace, recClass,backstory):
 	raceList=['dwarf', 'elf', 'halfling', 'human', 'dragonborn', 'gnome', 'half-elf', 'half-orc', 'tiefling']
 	classList=['barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'paladin', 'ranger', 'rogue', 'sorcerer', 'warlock', 'wizard']
-	userRace=str(input('Would you like to be a',recRace,'or would you like to choose another race? (Yes/Other) '))
+	userRace=str(input('Would you like to be a '+recRace+' or would you like to choose another race? (Yes/Other) '))
 	if userRace.lower()=='yes':
 		userRace=recRace
 	elif userRace.lower()=='other':
@@ -169,7 +169,7 @@ def characterCreation(recRace, recClass,backstory):
 			userRace=userRace.lower()
 	else:
 		while userRace not in raceList:
-			userRace=str(input('Would you like to be a',recRace,'or would you like to choose another race? (Yes/Other) '))
+			userRace=str(input('Would you like to be a '+recRace+' or would you like to choose another race? (Yes/Other) '))
 			if userRace.lower()=='yes':
 				userRace=recRace
 			elif userRace.lower()=='other':
@@ -277,7 +277,7 @@ def characterCreation(recRace, recClass,backstory):
 		attributes+=['Darkvision','Hellish Resistance']
 		cantrips+=['thaumaturgy']
 		languages+=['Common','Infernal']	
-	userClass=str(input('Would you like to be a',recClass,'or would you like to choose another race? (Yes/Other) '))
+	userClass=str(input('Would you like to be a '+recClass+' or would you like to choose another race? (Yes/Other) '))
 	if userClass.lower()=='yes':
 		userClass=recClass
 	elif userClass.lower()=='other':
@@ -288,7 +288,7 @@ def characterCreation(recRace, recClass,backstory):
 			userClass=userClass.lower()
 	else:
 		while userClass not in classList:
-			userClass=str(input('Would you like to be a',recClass,'or would you like to choose another class? (Yes/Other) '))
+			userClass=str(input('Would you like to be a '+recClass+' or would you like to choose another class? (Yes/Other) '))
 			if userClass.lower()=='yes':
 				userClass=recClass
 			elif userClass.lower()=='other':
