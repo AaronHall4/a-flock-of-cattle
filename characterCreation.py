@@ -155,7 +155,6 @@ def halfelf():
 	asi[8]=language
 	return asi
 
-
 def characterCreation(recRace, recClass):
 	raceList=['dwarf', 'elf', 'halfling', 'human', 'dragonborn', 'gnome', 'half-elf', 'half-orc', 'tiefling']
 	classList=['barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'paladin', 'ranger', 'rogue', 'sorcerer', 'warlock', 'wizard']
@@ -656,4 +655,32 @@ def characterCreation(recRace, recClass):
 		scores.append(sum(nums))
 
 	print('Your scores are',str(scores[0])+',',str(scores[1])+',',str(scores[2])+',',str(scores[3])+',',str(scores[4])+',',str(scores[5]))
-	
+	print('Your race buffs are +'+str(asi[0])+' to Strength, +'+str(asi[1])+' to Dexterity, +'+str(asi[2])+' to Constitution, +'+str(asi[3])+' to Wisdom, +'+str(asi[4])+' to Intelligence, and +'+str(asi[5])+' to Charisma')
+	strength=input('Which score would you like to use for strength? ')
+	while strength not in scores:
+		strength=input('That\'s not an available score. Which score would you like to use for strength? ')
+	scores.remove(strength)
+	dexterity=input('Which score would you like to use for dexterity? ')
+	while dexterity not in scores:
+		dexterity=input('That\'s not an available score. Which score would you like to use for dexterity? ')
+	scores.remove(dexterity)
+	constitution=input('Which score would you like to use for constitution? ')
+	while constitution not in scores:
+		constitution=input('That\'s not an available score. Which score would you like to use for constitution? ')
+	scores.remove(constitution)
+	wisdom=input('Which score would you like to use for wisdom? ')
+	while wisdom not in scores:
+		wisdom=input('That\'s not an available score. Which score would you like to use for wisdom? ')
+	scores.remove(wisdom)
+	intelligence=input('Which score would you like to use for intelligence? ')
+	while intelligence not in scores:
+		intelligence=input('That\'s not an available score. Which score would you like to use for intelligence? ')
+	scores.remove(intelligence)
+	charisma-scores[0]
+	print('Your scores are: ')
+	print('Strength:',strength+asi[0])
+	print('Dexterity:',dexterity+asi[1])
+	print('Constitution:',constitution+asi[2])
+	print('Wisdom:',wisdom+asi[3])
+	print('Intelligence:',intelligence+asi[4])
+	print('Charisma:',charisma+asi[6])
