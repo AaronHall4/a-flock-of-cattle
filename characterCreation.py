@@ -283,7 +283,7 @@ def characterCreation(recRace, recClass,backstory):
 		attributes+=['Darkvision','Hellish Resistance']
 		cantrips+=['thaumaturgy']
 		languages+=['Common','Infernal']	
-	userClass=str(query('Would you like to be a '+recClass+' or would you like to choose another race? (Yes/Other) '))
+	userClass=str(query('Would you like to be a '+recClass+' or would you like to choose another class? (Yes/Other) '))
 	if userClass.lower()=='yes':
 		userClass=recClass
 	elif userClass.lower()=='other':
