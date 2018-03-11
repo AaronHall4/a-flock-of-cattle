@@ -30,7 +30,7 @@ def main():
 
 	pp.description(
 """This tool will walk you through the process of creating their first
-Dungeons and Dragons character sheet. The first stepis to think of a
+Dungeons and Dragons character sheet. The first step is to think of a
 backstory for your character. Your backstory should describe where your
 character came from, what motivates them, and what their goals and
 deals are. We'll try to use your backstory to make some suggestions for
