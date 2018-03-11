@@ -22,7 +22,7 @@ def elf():
 	asi=[0,2,0,0,0,0,30]
 	subType=str(input('Would you like to be a High Elf, Wood Elf, or Dark Elf (Drow)? (High, Wood or Drow)'))
 	while subType.lower() not in 'high wood drow':
-		subType=str(input('ould you like to be a High Elf, Wood Elf, or Dark Elf (Drow)? (High, Wood or Drow)'))
+		subType=str(input('Would you like to be a High Elf, Wood Elf, or Dark Elf (Drow)? (High, Wood or Drow)'))
 	if subType.lower()=='high':
 		asi[4]=1
 		elfWeaponTraining=True
@@ -155,7 +155,7 @@ def halfelf():
 	asi[8]=language
 	return asi
 
-def characterCreation(recRace, recClass):
+def characterCreation(recRace, recClass,backstory):
 	raceList=['dwarf', 'elf', 'halfling', 'human', 'dragonborn', 'gnome', 'half-elf', 'half-orc', 'tiefling']
 	classList=['barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'paladin', 'ranger', 'rogue', 'sorcerer', 'warlock', 'wizard']
 	userRace=str(input('Would you like to be a',recRace,'or would you like to choose another race? (Yes/Other) '))
@@ -676,11 +676,17 @@ def characterCreation(recRace, recClass):
 	while intelligence not in scores:
 		intelligence=input('That\'s not an available score. Which score would you like to use for intelligence? ')
 	scores.remove(intelligence)
-	charisma-scores[0]
+	charisma=scores[0]+asi[5]
+	strength+=asi[0]
+	dexterity+=asi[1]
+	constitution+=asi[2]
+	wisdom+=asi[3]
+	intelligence+=asi[4]
 	print('Your scores are: ')
-	print('Strength:',strength+asi[0])
-	print('Dexterity:',dexterity+asi[1])
-	print('Constitution:',constitution+asi[2])
-	print('Wisdom:',wisdom+asi[3])
-	print('Intelligence:',intelligence+asi[4])
-	print('Charisma:',charisma+asi[6])
+	print('Strength:',strength)
+	print('Dexterity:',dexterity)
+	print('Constitution:',constitution)
+	print('Wisdom:',wisdom)
+	print('Intelligence:',intelligence)
+	print('Charisma:',charisma)
+
