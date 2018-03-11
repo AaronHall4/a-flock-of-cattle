@@ -647,9 +647,9 @@ def characterCreation(recRace, recClass,backstory):
 		equipment+=['a spellbook']
 
 	scores=[]
-	for i in xrange(6):
+	for i in range(6):
 		nums=[]
-		for i in xrange(4):
+		for i in range(4):
 			nums.append(randint(1,6))
 		nums[nums.index(min(nums))]=0
 		scores.append(sum(nums))
