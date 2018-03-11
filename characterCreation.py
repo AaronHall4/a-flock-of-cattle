@@ -662,25 +662,25 @@ def characterCreation(recRace, recClass,backstory):
 
 	print('Your scores are',str(scores[0])+',',str(scores[1])+',',str(scores[2])+',',str(scores[3])+',',str(scores[4])+',',str(scores[5]))
 	print('Your race buffs are +'+str(asi[0])+' to Strength, +'+str(asi[1])+' to Dexterity, +'+str(asi[2])+' to Constitution, +'+str(asi[3])+' to Wisdom, +'+str(asi[4])+' to Intelligence, and +'+str(asi[5])+' to Charisma')
-	strength=query('Which score would you like to use for strength? ')
+	strength=int(query('Which score would you like to use for strength? '))
 	while strength not in scores:
-		strength=query('That\'s not an available score. Which score would you like to use for strength? ')
+		strength=int(query('That\'s not an available score. Which score would you like to use for strength? '))
 	scores.remove(strength)
-	dexterity=query('Which score would you like to use for dexterity? ')
+	dexterity=int(query('Which score would you like to use for dexterity? '))
 	while dexterity not in scores:
-		dexterity=query('That\'s not an available score. Which score would you like to use for dexterity? ')
+		dexterity=int(query('That\'s not an available score. Which score would you like to use for dexterity? '))
 	scores.remove(dexterity)
-	constitution=query('Which score would you like to use for constitution? ')
+	constitution=int(query('Which score would you like to use for constitution? '))
 	while constitution not in scores:
-		constitution=query('That\'s not an available score. Which score would you like to use for constitution? ')
+		constitution=int(query('That\'s not an available score. Which score would you like to use for constitution? '))
 	scores.remove(constitution)
-	wisdom=query('Which score would you like to use for wisdom? ')
+	wisdom=int(query('Which score would you like to use for wisdom? '))
 	while wisdom not in scores:
-		wisdom=query('That\'s not an available score. Which score would you like to use for wisdom? ')
+		wisdom=int(query('That\'s not an available score. Which score would you like to use for wisdom? '))
 	scores.remove(wisdom)
-	intelligence=query('Which score would you like to use for intelligence? ')
+	intelligence=int(query('Which score would you like to use for intelligence? '))
 	while intelligence not in scores:
-		intelligence=query('That\'s not an available score. Which score would you like to use for intelligence? ')
+		intelligence=int(query('That\'s not an available score. Which score would you like to use for intelligence? '))
 	scores.remove(intelligence)
 	charisma=scores[0]+asi[5]
 	strength+=asi[0]
