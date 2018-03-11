@@ -2,8 +2,6 @@ from fdfgen import forge_fdf
 import os
 from math import floor
 
-# TODO: Include weapon stuff
-
 strMod = int(floor((strength - 10)/2))
 dexMod = int(floor((dexterity - 10)/2))
 conMod = int(floor((constitution - 10)/2))
