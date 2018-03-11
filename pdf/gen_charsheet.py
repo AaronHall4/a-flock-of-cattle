@@ -1,252 +1,115 @@
 from fdfgen import forge_fdf
 import os
+from math import floor
 
 # TODO: Include weapon stuff
 
+strMod = int(floor((strength - 10)/2))
+dexMod = int(floor((dexterity - 10)/2))
+conMod = int(floor((constitution - 10)/2))
+intMod = int(floor((intelligence - 10)/2))
+wisMod = int(floor((wisdom - 10)/2))
+chaMod = int(floor((charisma - 10)/2))
+
+AC=10+dexMod
+if userClass=='monk':
+    AC=10+dexMod+wisMod
+elif userClass=='barbarian':
+    AC=10+dexMod+conMod
+if 'leather armor' in equipment:
+    AC=11+dexMod
+elif 'scale mail' in equipment:
+    if dexMod>=2:
+        AC=16
+    else:
+        AC=14+dexMod
+elif 'chain mail' in equipment:
+    AC=16
+if 'shield' in equipment:
+    AC+=2
+elif 'wooden shield' in equipment:
+    AC+=2
+
 fields = [
-          ('ClassLevel','Hello1'),
-          ('Background','Hello2'),
-          ('PlayerName','Hello3'),
-          ('CharacterName','Hello4'),
-          ('Race ','Hello5'),
-          ('Alignment','Hello6'),
-          ('XP','Hello7'),
-          ('Inspiration','Hello8'),
-          ('STR','Hello9'),
-          ('ProfBonus','Hello10'),
-          ('AC','Hello11'),
-          ('Initiative','Hello12'),
-          ('Speed','Hello13'),
-          ('PersonalityTraits ','Hello14'),
-          ('STRmod','Hello15'),
-          ('HPMax','Hello16'),
-          ('ST Strength','Hello17'),
-          ('DEX','Hello18'),
-          ('HPCurrent','Hello19'),
-          ('Ideals','Hello20'),
-          ('DEXmod ','Hello21'),
-          ('HPTemp','Hello22'),
-          ('Bonds','Hello23'),
-          ('CON','Hello24'),
-          ('HDTotal','Hello25'),
-          ('CONmod','Hello26'),
-          ('HD','Hello27'),
-          ('Flaws','Hello28'),
-          ('INT','Hello29'),
-          ('ST Dexterity','Hello30'),
-          ('ST Constitution','Hello31'),
-          ('ST Intelligence','Hello32'),
-          ('ST Wisdom','Hello33'),
-          ('ST Charisma','Hello34'),
-          ('Acrobatics','Hello35'),
-          ('Animal','Hello36'),
-          ('Athletics','Hello37'),
-          ('Deception ','Hello38'),
-          ('History ','Hello39'),
-          ('Insight','Hello40'),
-          ('Intimidation','Hello41'),
-          ('Wpn Name','Hello42'),
-          ('Wpn1 AtkBonus','Hello43'),
-          ('Wpn1 Damage','Hello44'),
-          ('INTmod','Hello45'),
-          ('Wpn Name 2','Hello46'),
-          ('Wpn2 AtkBonus ','Hello47'),
-          ('Wpn2 Damage ','Hello48'),
-          ('Investigation ','Hello49'),
-          ('WIS','Hello50'),
-          ('Wpn Name 3','Hello51'),
-          ('Wpn3 AtkBonus  ','Hello52'),
-          ('Arcana','Hello53'),
-          ('Wpn3 Damage ','Hello54'),
-          ('Perception ','Hello55'),
-          ('WISmod','Hello56'),
-          ('CHA','Hello57'),
-          ('Nature','Hello58'),
-          ('Performance','Hello59'),
-          ('Medicine','Hello60'),
-          ('Religion','Hello61'),
-          ('Stealth ','Hello62'),
-          ('Persuasion','Hello63'),
-          ('SleightofHand','Hello64'),
-          ('CHamod','Hello65'),
-          ('Survival','Hello66'),
-          ('AttacksSpellcasting','Hello67'),
-          ('Passive','Hello68'),
-          ('CP','Hello69'),
-          ('ProficienciesLang','Hello70'),
-          ('SP','Hello71'),
-          ('EP','Hello72'),
-          ('GP','Hello73'),
-          ('PP','Hello74'),
-          ('Equipment','Hello75'),
-          ('Features and Traits','Hello76'),
-          ('CharacterName 2','Hello77'),
-          ('Age','Hello78'),
-          ('Height','Hello79'),
-          ('Weight','Hello80'),
-          ('Eyes','Hello81'),
-          ('Skin','Hello82'),
-          ('Hair','Hello83'),
-          ('Allies','Hello84'),
-          ('FactionName','Hello85'),
-          ('Backstory','Hello86'),
-          ('Feat+Traits','Hello87'),
-          ('Treasure','Hello88'),
-          ('Spellcasting Class 2','Hello89'),
-          ('SpellcastingAbility 2','Hello90'),
-          ('SpellSaveDC  2','Hello91'),
-          ('SpellAtkBonus 2','Hello92'),
-          ('SlotsTotal 19','Hello93'),
-          ('SlotsRemaining 19','Hello94'),
-          ('Spells 1014','Hello95'),
-          ('Spells 1015','Hello96'),
-          ('Spells 1016','Hello97'),
-          ('Spells 1017','Hello98'),
-          ('Spells 1018','Hello99'),
-          ('Spells 1019','Hello100'),
-          ('Spells 1020','Hello101'),
-          ('Spells 1021','Hello102'),
-          ('Spells 1022','Hello103'),
-          ('Spells 1023','Hello104'),
-          ('Spells 1024','Hello105'),
-          ('Spells 1025','Hello106'),
-          ('Spells 1026','Hello107'),
-          ('Spells 1027','Hello108'),
-          ('Spells 1028','Hello109'),
-          ('Spells 1029','Hello110'),
-          ('Spells 1030','Hello111'),
-          ('Spells 1031','Hello112'),
-          ('Spells 1032','Hello113'),
-          ('Spells 1033','Hello114'),
-          ('SlotsTotal 20','Hello115'),
-          ('SlotsRemaining 20','Hello116'),
-          ('Spells 1034','Hello117'),
-          ('Spells 1035','Hello118'),
-          ('Spells 1036','Hello119'),
-          ('Spells 1037','Hello120'),
-          ('Spells 1038','Hello121'),
-          ('Spells 1039','Hello122'),
-          ('Spells 1040','Hello123'),
-          ('Spells 1041','Hello124'),
-          ('Spells 1042','Hello125'),
-          ('Spells 1043','Hello126'),
-          ('Spells 1044','Hello127'),
-          ('Spells 1045','Hello128'),
-          ('Spells 1046','Hello129'),
-          ('SlotsTotal 21','Hello130'),
-          ('SlotsRemaining 21','Hello131'),
-          ('Spells 1047','Hello132'),
-          ('Spells 1048','Hello133'),
-          ('Spells 1049','Hello134'),
-          ('Spells 1050','Hello135'),
-          ('Spells 1051','Hello136'),
-          ('Spells 1052','Hello137'),
-          ('Spells 1053','Hello138'),
-          ('Spells 1054','Hello139'),
-          ('Spells 1055','Hello140'),
-          ('Spells 1056','Hello141'),
-          ('Spells 1057','Hello142'),
-          ('Spells 1058','Hello143'),
-          ('Spells 1059','Hello144'),
-          ('SlotsTotal 22','Hello145'),
-          ('SlotsRemaining 22','Hello146'),
-          ('Spells 1060','Hello147'),
-          ('Spells 1061','Hello148'),
-          ('Spells 1062','Hello149'),
-          ('Spells 1063','Hello150'),
-          ('Spells 1064','Hello151'),
-          ('Spells 1065','Hello152'),
-          ('Spells 1066','Hello153'),
-          ('Spells 1067','Hello154'),
-          ('Spells 1068','Hello155'),
-          ('Spells 1069','Hello156'),
-          ('Spells 1070','Hello157'),
-          ('Spells 1071','Hello158'),
-          ('Spells 1072','Hello159'),
-          ('SlotsTotal 23','Hello160'),
-          ('SlotsRemaining 23','Hello161'),
-          ('Spells 1073','Hello162'),
-          ('Spells 1074','Hello163'),
-          ('Spells 1075','Hello164'),
-          ('Spells 1076','Hello165'),
-          ('Spells 1077','Hello166'),
-          ('Spells 1078','Hello167'),
-          ('Spells 1079','Hello168'),
-          ('Spells 1080','Hello169'),
-          ('Spells 1081','Hello170'),
-          ('SlotsTotal 24','Hello171'),
-          ('SlotsRemaining 24','Hello172'),
-          ('Spells 1082','Hello173'),
-          ('Spells 1083','Hello174'),
-          ('Spells 1084','Hello175'),
-          ('Spells 1085','Hello176'),
-          ('Spells 1086','Hello177'),
-          ('Spells 1087','Hello178'),
-          ('Spells 1088','Hello179'),
-          ('Spells 1089','Hello180'),
-          ('Spells 1090','Hello181'),
-          ('SlotsTotal 25','Hello182'),
-          ('SlotsRemaining 25','Hello183'),
-          ('Spells 1091','Hello184'),
-          ('Spells 1092','Hello185'),
-          ('Spells 1093','Hello186'),
-          ('Spells 1094','Hello187'),
-          ('Spells 1095','Hello188'),
-          ('Spells 1096','Hello189'),
-          ('Spells 1097','Hello190'),
-          ('Spells 1098','Hello191'),
-          ('Spells 1099','Hello192'),
-          ('SlotsTotal 26','Hello193'),
-          ('SlotsRemaining 26','Hello194'),
-          ('Spells 10100','Hello195'),
-          ('Spells 10101','Hello196'),
-          ('Spells 10102','Hello197'),
-          ('Spells 10103','Hello198'),
-          ('Spells 10104','Hello199'),
-          ('Spells 10105','Hello200'),
-          ('Spells 10106','Hello201'),
-          ('SlotsTotal 27','Hello202'),
-          ('SlotsRemaining 27','Hello203'),
-          ('Spells 10107','Hello204'),
-          ('Spells 10108','Hello205'),
-          ('Spells 10109','Hello206'),
-          ('Spells 101010','Hello207'),
-          ('Spells 101011','Hello208'),
-          ('Spells 101012','Hello209'),
-          ('Spells 101013','Hello210'),
+          ('ClassLevel', userClass + " 1"),
+          ('PlayerName',playerName),
+          ('CharacterName',characterName),
+          ('Race ',userRace + ' (' + subType + ')'),
+          ('XP','0'),
+          ('STR',str(strength)),
+          ('ProfBonus','+2'),
+          ('AC',str(AC)),
+          ('Initiative',str(dexMod)),
+          ('Speed',str(walkingSpeed)),
+          ('STRmod',str(strMod)),
+          ('HPMax',str(hpMax + conMod)),
+          ('ST Strength',str(strMod + (2 if (0 in savingThrows) else 0))),
+          ('DEX',str(dexterity)),
+          ('DEXmod ',str(dexMod)),
+          ('CON',str(constitution)),
+          ('HDTotal','1d' + str(hitDice)),
+          ('CONmod',str(conMod)),
+          ('INT',str(intelligence)),
+          ('ST Dexterity',str(dexMod + (2 if (1 in savingThrows) else 0))),
+          ('ST Constitution',str(conMod + (2 if (2 in savingThrows) else 0))),
+          ('ST Intelligence',str(intMod + (2 if (3 in savingThrows) else 0))),
+          ('ST Wisdom',str(wisMod + (2 if (4 in savingThrows) else 0))),
+          ('ST Charisma',str(chaMod + (2 if (5 in savingThrows) else 0))),
+          ('Acrobatics',str(dexMod + (2 if 'Acrobatics' in proficiencies else 0))),
+          ('Animal',str(wisMod + (2 if 'Animal Handling' in proficiencies else 0))),
+          ('Athletics',str(strMod + (2 if 'Athletics' in proficiencies else 0))),
+          ('Deception ',str(chaMod + (2 if 'Deception' in proficiencies else 0))),
+          ('History ',str(intMod + (2 if 'History' in proficiencies else 0))),
+          ('Insight',str(wisMod + (2 if 'Insight' in proficiencies else 0))),
+          ('Intimidation',str(chaMod + (2 if 'Intimidation' in proficiencies else 0))),
+          ('INTmod',str(intMod)),
+          ('Investigation ',str(intMod + (2 if 'Investigation' in proficiencies else 0))),
+          ('WIS',str(wisdom)),
+          ('Arcana',str(intMod + (2 if 'Arcana' in proficiencies else 0))),
+          ('Perception ',str(wisMod + (2 if 'Perception' in proficiencies else 0))),
+          ('WISmod',str(wisMod)),
+          ('CHA',str(charisma)),
+          ('Nature',str(intMod + (2 if 'Nature' in proficiencies else 0))),
+          ('Performance',str(chaMod + (2 if 'Performance' in proficiencies else 0))),
+          ('Medicine',str(wisMod + (2 if 'Medicine' in proficiencies else 0))),
+          ('Religion',str(intMod + (2 if 'Religion' in proficiencies else 0))),
+          ('Stealth ',str(dexMod + (2 if 'Stealth' in proficiencies else 0))),
+          ('Persuasion',str(chaMod + (2 if 'Persuasion' in proficiencies else 0))),
+          ('SleightofHand',str(dexMod + (2 if 'Sleight of Hand' in proficiencies else 0))),
+          ('CHamod',str(chaMod)),
+          ('Survival',str(wisMod + (2 if 'Survival' in proficiencies else 0))),
+          ('Passive',str(10 + wisMod + (2 if 'Perception' in proficiencies else 0))),
+          ('ProficienciesLang',', '.join(proficiencies + languages),
+          ('Equipment',', '.join(equipment)),
+          ('Features and Traits',', '.join(attributes)),
+          ('CharacterName 2',characterName),
+          ('Backstory',backstory),
 
-          ('Check Box 12','Yes'), # Success Save 1
-          ('Check Box 13','Yes'), # Success Save 2
-          ('Check Box 14','Yes'), # Success Save 3
-          ('Check Box 15','Yes'), # Failure Save 1
-          ('Check Box 16','Yes'), # Failure Save 2
-          ('Check Box 17','Yes'), # Failure Save 3
+          ('Check Box 11','Yes' if 0 in savingThrows else 'No'), # Strength ST Prof
+          ('Check Box 18','Yes' if 1 in savingThrows else 'No'), # Dexterity ST Prof
+          ('Check Box 19','Yes' if 2 in savingThrows else 'No'), # Constitution ST Prof
+          ('Check Box 20','Yes' if 3 in savingThrows else 'No'), # Intelligence ST Prof
+          ('Check Box 21','Yes' if 4 in savingThrows else 'No'), # Wisdom ST Prof
+          ('Check Box 22','Yes' if 5 in savingThrows else 'No'), # Charisma ST Prof
 
-          ('Check Box 11','Yes'), # Strength ST Prof
-          ('Check Box 18','Yes'), # Dexterity ST Prof
-          ('Check Box 19','Yes'), # Constitution ST Prof
-          ('Check Box 20','Yes'), # Intelligence ST Prof
-          ('Check Box 21','Yes'), # Wisdom ST Prof
-          ('Check Box 22','Yes'), # Charisma ST Prof
-
-          ('Check Box 23','Yes'), # Acrobatics Prof
-          ('Check Box 24','Yes'), # Animal Handling Prof
-          ('Check Box 25','Yes'), # Arcana Prof
-          ('Check Box 26','Yes'), # Athletics Prof
-          ('Check Box 27','Yes'), # Deception Prof
-          ('Check Box 28','Yes'), # History Prof
-          ('Check Box 29','Yes'), # Insight Prof
-          ('Check Box 30','Yes'), # Intimidation Prof
-          ('Check Box 31','Yes'), # Investigation Prof
-          ('Check Box 32','Yes'), # Medicine Prof
-          ('Check Box 33','Yes'), # Nature Prof
-          ('Check Box 34','Yes'), # Perception Prof
-          ('Check Box 35','Yes'), # Performance Prof
-          ('Check Box 36','Yes'), # Persuasion Prof
-          ('Check Box 37','Yes'), # Religion Prof
-          ('Check Box 38','Yes'), # Sleight of Hand Prof
-          ('Check Box 39','Yes'), # Stealth Prof
-          ('Check Box 40','Yes'), # Survival Prof
+          ('Check Box 23','Yes' if 'Acrobatics' in proficiencies else 'No'), # Acrobatics Prof
+          ('Check Box 24','Yes' if 'Animal Handling' in proficiencies else 'No'), # Animal Handling Prof
+          ('Check Box 25','Yes' if 'Arcana' in proficiencies else 'No'), # Arcana Prof
+          ('Check Box 26','Yes' if 'Athletics' in proficiencies else 'No'), # Athletics Prof
+          ('Check Box 27','Yes' if 'Deception' in proficiencies else 'No'), # Deception Prof
+          ('Check Box 28','Yes' if 'History' in proficiencies else 'No'), # History Prof
+          ('Check Box 29','Yes' if 'Insight' in proficiencies else 'No'), # Insight Prof
+          ('Check Box 30','Yes' if 'Intimidation' in proficiencies else 'No'), # Intimidation Prof
+          ('Check Box 31','Yes' if 'Investigation' in proficiencies else 'No'), # Investigation Prof
+          ('Check Box 32','Yes' if 'Medicine' in proficiencies else 'No'), # Medicine Prof
+          ('Check Box 33','Yes' if 'Nature' in proficiencies else 'No'), # Nature Prof
+          ('Check Box 34','Yes' if 'Perception' in proficiencies else 'No'), # Perception Prof
+          ('Check Box 35','Yes' if 'Performance' in proficiencies else 'No'), # Performance Prof
+          ('Check Box 36','Yes' if 'Persuasion' in proficiencies else 'No'), # Persuasion Prof
+          ('Check Box 37','Yes' if 'Religion' in proficiencies else 'No'), # Religion Prof
+          ('Check Box 38','Yes' if 'Sleight of Hand' in proficiencies else 'No'), # Sleight of Hand Prof
+          ('Check Box 39','Yes' if 'Stealth' in proficiencies else 'No'), # Stealth Prof
+          ('Check Box 40','Yes' if 'Survival' in proficiencies else 'No'), # Survival Prof
           ]
 fdf = forge_fdf("", fields, [], [], [])
 fdf_file = open("char_sheet.fdf", "wb")
