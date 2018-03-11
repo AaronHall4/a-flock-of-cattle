@@ -304,8 +304,10 @@ def characterCreation(recRace, recClass,backstory):
 	if userClass=='barbarian':
 		hitDice=12
 		hpMax+=12
-		if subType!='mountain':
-			proficiencies+=['light armor','medium armor']
+		if 'light armor' not in proficiencies:
+			proficiencies+=['light armor']
+		if 'medium armor' not in proficiencies:
+			proficiencies+=['medium armor']
 		proficiencies+=['shields','simple weapons','martial weapons']
 		savingThrows=[0,2]
 		skillOne=str(query('Choose one of the following: Animal Handling, Intimidation, Nature, Perception, and Survival '))
@@ -660,7 +662,7 @@ def characterCreation(recRace, recClass,backstory):
 		nums[nums.index(min(nums))]=0
 		scores.append(sum(nums))
 
-	description_nospace('Your scores are',str(scores[0])+',',str(scores[1])+',',str(scores[2])+',',str(scores[3])+',',str(scores[4])+',',str(scores[5]))
+	description_nospace('Your scores are '+str(scores[0])+', '+str(scores[1])+', '+str(scores[2])+', '+str(scores[3])+', '+str(scores[4])+', '+str(scores[5]))
 	description('Your race buffs are +'+str(asi[0])+' to Strength, +'+str(asi[1])+' to Dexterity, +'+str(asi[2])+' to Constitution, +'+str(asi[3])+' to Wisdom, +'+str(asi[4])+' to Intelligence, and +'+str(asi[5])+' to Charisma')
 	strength=int(query('Which score would you like to use for strength? '))
 	while strength not in scores:
@@ -689,12 +691,12 @@ def characterCreation(recRace, recClass,backstory):
 	wisdom+=asi[3]
 	intelligence+=asi[4]
 	description_nospace('Your scores are: ')
-	description_nospace('Strength:',strength)
-	description_nospace('Dexterity:',dexterity)
-	description_nospace('Constitution:',constitution)
-	description_nospace('Wisdom:',wisdom)
-	description_nospace('Intelligence:',intelligence)
-	description('Charisma:',charisma)
+	description_nospace('Strength: '+str(strength))
+	description_nospace('Dexterity: '+str(dexterity))
+	description_nospace('Constitution: '+str(constitution))
+	description_nospace('Wisdom: '+str(wisdom))
+	description_nospace('Intelligence: '+str(intelligence))
+	description('Charisma: '+str(charisma))
 	playerName=query('What is your name? ')
 	characterName=query('What would you like to name your character?')
 
@@ -819,5 +821,3 @@ def characterCreation(recRace, recClass,backstory):
 	fdf_file.write(fdf)
 	fdf_file.close()
 	os.system("pdftk EmptyCharacterSheet.pdf fill_form char_sheet.fdf output char_sheet.pdf")
-
-	characterCreation('elf','warlock','I did shit')
