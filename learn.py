@@ -1,6 +1,6 @@
 
 import pickle
-import numpy as np
+# import numpy as np
 
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.pipeline import Pipeline
@@ -95,7 +95,7 @@ def leave_one_out_acc():
     race_acc = [float(race_correct[i])/race_total[i] for i in range(len(race_correct))]
     class_acc = [float(class_correct[i])/class_total[i] for i in range(len(class_correct))]
 
-    return race_correct, class_correct, race_total, class_total, race_acc, class_acc, np.mean(race_acc), np.mean(class_acc)
+    return race_correct, class_correct, race_total, class_total, race_acc, class_acc#, np.mean(race_acc), np.mean(class_acc)
 
 def grid_search():
     f = open('data_lst', 'rb')
