@@ -41,7 +41,10 @@ suggestions for how to design your character.""")
 	suggested_race = race_lut[race_pipeline.predict([backstory])[0]]
 	suggested_class = class_lut[class_pipeline.predict([backstory])[0]]
 
-	cc.characterCreation(suggested_race, suggested_class, backstory)
+	pp.description("""
+From your backstory, it looks like you'd make a great {} {}.""".format(suggested_race,suggested_class))
+
+	# cc.characterCreation(suggested_race, suggested_class, backstory)
 
 	# pp.description(suggested_class)
 	# pp.description(suggested_race)
