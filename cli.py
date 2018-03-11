@@ -3,7 +3,7 @@ import pickle
 from sklearn.pipeline import Pipeline
 
 import prettyprinters as pp
-# import characterCreation as cc
+import characterCreation as cc
 
 balanced=False
 race_lut = ['dwarf', 'elf', 'halfling', 'human', 'dragonborn', 'gnome', 'half-elf', 'half-orc', 'tiefling']
