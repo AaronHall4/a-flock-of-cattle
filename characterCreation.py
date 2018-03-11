@@ -17,9 +17,9 @@ def dwarf():
 		asi[0]=2
 		dwarvenToughness=False
 		dwarvenArmorTraining=True
-	asi[7]=dwarvenToughness
-	asi[8]=dwarvenArmorTraining
-	asi[6]=subType
+	asi.append(subType)
+	asi.append(dwarvenToughness)
+	asi.append(dwarvenArmorTraining)
 	return asi
 
 def elf():
@@ -56,15 +56,15 @@ def elf():
 		cantrip=False
 		extraLanguage=False
 		maskOfTheWild=False
-	asi[8]=elfWeaponTraining
-	asi[9]=cantrip
-	asi[10]=extraLanguage
-	asi[11]=maskOfTheWild
-	asi[12]=superiorDarkvision
-	asi[13]=drowMagic
-	asi[14]=drowWeaponTraining
-	asi[15]=sunlightSensitivity
-	asi[7]=subType
+	asi.append(subType)
+	asi.append(elfWeaponTraining)
+	asi.append(cantrip)
+	asi.append(extraLanguage)
+	asi.append(maskOfTheWild)
+	asi.append(superiorDarkvision)
+	asi.append(drowMagic)
+	asi.append(drowWeaponTraining)
+	asi.append(sunlightSensitivity)
 	return asi
 
 def halfling():
@@ -80,9 +80,9 @@ def halfling():
 		asi[2]=1
 		naturallyStealthy=False
 		stoutResilience=True
-	asi[7]=naturallyStealthy
-	asi[8]=stoutResilience
-	asi[6]=subType
+	asi.append(subType)
+	asi.append(naturallyStealthy)
+	asi.append(stoutResilience)
 	return asi
 
 def dragonborn():
@@ -101,8 +101,8 @@ def dragonborn():
 		damageType='Cold'
 	else:
 		damageType='Poison'
-	asi[6]=damageType
-	asi[7]=ancestry
+	asi.append(damageType)
+	asi.append(ancestry)
 	return asi
 
 def gnome():
@@ -122,11 +122,11 @@ def gnome():
 		speakWithSmallBeasts=False
 		artificersLore=True
 		tinker=True
-	asi[7]=naturalIllusionist
-	asi[8]=speakWithSmallBeasts
-	asi[9]=artificersLore
-	asi[10]=tinker
-	asi[6]=subType
+	asi.append(subType)
+	asi.append(naturalIllusionist)
+	asi.append(speakWithSmallBeasts)
+	asi.append(artificersLore)
+	asi.append(tinker)
 	return asi
 
 def halfelf():
@@ -154,9 +154,9 @@ def halfelf():
 	while skillTwo==skillOne:
 		skillTwo=str(query('Choose a different skill to gain proficiency in: '))
 	language=str(query('Choose an extra language to know: '))
-	asi[6]=skillOne
-	asi[7]=skillTwo
-	asi[8]=language
+	asi.append(skillOne)
+	asi.append(skillTwo)
+	asi.append(language)
 	return asi
 
 def characterCreation(recRace, recClass,backstory):
@@ -806,4 +806,3 @@ def characterCreation(recRace, recClass,backstory):
 	os.system("pdftk EmptyCharacterSheet.pdf fill_form char_sheet.fdf output char_sheet.pdf")
 
 characterCreation('elf','warlock','I did shit')
-
