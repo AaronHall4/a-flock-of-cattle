@@ -19,7 +19,7 @@ def description(text):
 
 def head(text):
 	puts('')
-	with indent(8):
+	with indent(4):
 		puts(colored.blue(bcolors.BOLD+text+bcolors.ENDBOLD))
 	puts('')
 

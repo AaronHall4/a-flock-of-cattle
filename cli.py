@@ -26,7 +26,7 @@ def main():
 		race_pipeline = pickle.load(f)
 		f.close()
 		
-	pp.head('Welcome to the ')
+	pp.head('Welcome to the D&D Character Setup Helper!')
 
 	pp.description(
 """This is a tool to help walk beginning players through the process of
