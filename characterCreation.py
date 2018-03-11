@@ -1,5 +1,5 @@
 from random import randint
-from prettyprinters import query
+from prettyprinters import query, description, description_nospace
 from fdfgen import forge_fdf
 import os
 from math import floor
@@ -313,7 +313,7 @@ def characterCreation(recRace, recClass,backstory):
 		while skillOne.lower()==skillTwo.lower():
 			skillTwo=str(query('Choose a different one of those skills'))
 		proficiencies+=[skillOne,skillTwo]
-		print('For the next few options, enter 1 to choose the first option, and 2 to choose the second.')
+		description('For the next few options, enter 1 to choose the first option, and 2 to choose the second.')
 		equipmentChoice=query('Would you like a greataxe or any martial melee weapon?')
 		if equipmentChoice==1:
 			equipment+=['greataxe']
@@ -347,7 +347,7 @@ def characterCreation(recRace, recClass,backstory):
 		skillOne=str(query('Choose a skill you\'re not already proficient in: '))
 		skillTwo=str(query('Choose a different skill you\'re not already proficient in: '))
 		skillThree=str(query('Choose a third skill you\'re not already proficient in '))
-		print('For the next few options, enter 1 to choose the first option, 2 to choose the second, and 3 to choose the third if there is one.')
+		description('For the next few options, enter 1 to choose the first option, 2 to choose the second, and 3 to choose the third if there is one.')
 		equipmentChoice=query('Would you like a rapier, a longsword, or any simple weapon?')
 		if equipmentChoice==1:
 			equipment+=['rapier']
@@ -381,7 +381,7 @@ def characterCreation(recRace, recClass,backstory):
 		while skillTwo.lower()==skillOne.lower():
 			skillTwo=str(query('Choose another skill from above:'))
 		proficiencies+=[skillOne,skillTwo]
-		print('For the next few options, enter 1 to choose the first option, and 2 to choose the second.')
+		description('For the next few options, enter 1 to choose the first option, and 2 to choose the second.')
 		equipmentChoice=query('Would you like a Mace or a Warhammer (choose warhammer only if you\'re a Dwarf) ')
 		if equipmentChoice==1:
 			equipment+=['mace']
@@ -415,7 +415,7 @@ def characterCreation(recRace, recClass,backstory):
 		skillOne=str(query('Choose a skill from the following: Arcana, Animal Handling, Insight, Medicine, Nature, Perception, Religion, Survival'))
 		skillTwo=str(query('Choose a different skill from the above: '))
 		proficiencies+=[skillOne,skillTwo]
-		print('For the next few options, enter 1 to choose the first option, and 2 to choose the second.')
+		description('For the next few options, enter 1 to choose the first option, and 2 to choose the second.')
 		equipmentChoice=query('Would you like a wooden shield or any simple weapon? ')
 		if equipmentChoice==1:
 			equipment+=['wooden shield']
@@ -435,7 +435,7 @@ def characterCreation(recRace, recClass,backstory):
 		skillOne=str(query('Choose a skill from the following: Acrobatics, Animal Handling, Athletics, History, Insight, Intimidation, Perception, or Survival'))
 		skillTwo=str(query('Choose a different skill from the above: '))
 		proficiencies+=[skillOne,skillTwo]
-		print('For the next few options, enter 1 to choose the first option, and 2 to choose the second.')
+		description('For the next few options, enter 1 to choose the first option, and 2 to choose the second.')
 		equipmentChoice=query('Would you like chain mail or leather armor, a longbow, and 20 arrows? ')
 		if equipmentChoice==1:
 			equipment+=['chain mail']
@@ -467,7 +467,7 @@ def characterCreation(recRace, recClass,backstory):
 		skillOne=str(query('Choose a skill from the following: Acrobatics, Athletics, History, Insight, Religion, or Stealth'))
 		skillTwo=str(query('Choose a different skill from the above: '))
 		proficiencies+=[skillOne,skillTwo]
-		print('For the next few options, enter 1 to choose the first option, and 2 to choose the second.')
+		description('For the next few options, enter 1 to choose the first option, and 2 to choose the second.')
 		equipmentChoice=query('Would you like a shortsword or any simple weapon? ')
 		if equipmentChoice==1:
 			equipment+=['shortsword']
@@ -487,7 +487,7 @@ def characterCreation(recRace, recClass,backstory):
 		skillOne=str(query('Choose a skill from the following: Atheltics, Insight, Intimidation, Medicine, Persuasion, or Religion'))
 		skillTwo=str(query('Choose a different skill from the above: '))
 		proficiencies+=[skillOne,skillTwo]
-		print('For the next few options, enter 1 to choose the first option, and 2 to choose the second.')
+		description('For the next few options, enter 1 to choose the first option, and 2 to choose the second.')
 		equipmentChoice=query('Would you like a martial weapon and a shield or 2 martial weapons?')
 		if equipmentChoice==1:
 			equipment+=['martial weapons','shield']
@@ -517,7 +517,7 @@ def characterCreation(recRace, recClass,backstory):
 		skillTwo=str(query('Choose a different skill from the above: '))
 		skillThree=str(query('Choose a third skill from the above: '))
 		proficiencies+=[skillOne,skillTwo,skillThree]
-		print('For the next few options, enter 1 to choose the first option, and 2 to choose the second.')
+		description('For the next few options, enter 1 to choose the first option, and 2 to choose the second.')
 		equipmentChoice=query('Would you like scale mail or leather armor?')
 		if equipmentChoice==1:
 			equipment+=['scale mail']
@@ -555,7 +555,7 @@ def characterCreation(recRace, recClass,backstory):
 		skillThree=str(query('Choose a third skill from the above: '))
 		skillFour=str(query('Choose a fourth skill from the above: '))
 		proficiencies+=[skillOne,skillTwo,skillThree,skillFour]
-		print('For the next few options, enter 1 to choose the first option, 2 to choose the second, and 3 if you want the third')
+		description('For the next few options, enter 1 to choose the first option, 2 to choose the second, and 3 if you want the third')
 		equipmentChoice=query('Would you like a rapier or a shortsword?')
 		if equipmentChoice==1:
 			equipment+=['rapier']
@@ -582,7 +582,7 @@ def characterCreation(recRace, recClass,backstory):
 		skillOne=str(query('Choose a skill from the following: Arcana, Deception, Insight, Intimidation, Persuasion, or Religion'))
 		skillTwo=str(query('Choose a different skill from the above: '))
 		proficiencies+=[skillOne,skillTwo]
-		print('For the next few options, enter 1 to choose the first option, 2 to choose the second, and 3 if you want the third')
+		description('For the next few options, enter 1 to choose the first option, 2 to choose the second, and 3 if you want the third')
 		equipmentChoice=query('Would you like a light crossbow and 20 bolts or any simple weapon')
 		if equipmentChoice==1:
 			equipment+=['light crossbow','20 bolts']
@@ -609,7 +609,7 @@ def characterCreation(recRace, recClass,backstory):
 		skillOne=str(query('Choose a skill from the following: Arcana, Deception, History, Intimidation, Investigation, History, or Religion'))
 		skillTwo=str(query('Choose a different skill from the above: '))
 		proficiencies+=[skillOne,skillTwo]
-		print('For the next few options, enter 1 to choose the first option, 2 to choose the second, and 3 if you want the third')
+		description('For the next few options, enter 1 to choose the first option, 2 to choose the second, and 3 if you want the third')
 		equipmentChoice=query('Would you like a light crossbow and 20 bolts or any simple weapon')
 		if equipmentChoice==1:
 			equipment+=['light crossbow','20 bolts']
@@ -634,7 +634,7 @@ def characterCreation(recRace, recClass,backstory):
 		skillOne=str(query('Choose a skill from the following: Arcana, History, Insight, Investigation, Medicine, or Religion'))
 		skillTwo=str(query('Choose a different skill from the above: '))
 		proficiencies+=[skillOne,skillTwo]
-		print('For the next few options, enter 1 to choose the first option, 2 to choose the second, and 3 if you want the third')
+		description('For the next few options, enter 1 to choose the first option, 2 to choose the second, and 3 if you want the third')
 		equipmentChoice=query('Would you like a quarterstaff or a dagger')
 		if equipmentChoice==1:
 			equipment+=['quarterstaff']
@@ -660,8 +660,8 @@ def characterCreation(recRace, recClass,backstory):
 		nums[nums.index(min(nums))]=0
 		scores.append(sum(nums))
 
-	print('Your scores are',str(scores[0])+',',str(scores[1])+',',str(scores[2])+',',str(scores[3])+',',str(scores[4])+',',str(scores[5]))
-	print('Your race buffs are +'+str(asi[0])+' to Strength, +'+str(asi[1])+' to Dexterity, +'+str(asi[2])+' to Constitution, +'+str(asi[3])+' to Wisdom, +'+str(asi[4])+' to Intelligence, and +'+str(asi[5])+' to Charisma')
+	description_nospace('Your scores are',str(scores[0])+',',str(scores[1])+',',str(scores[2])+',',str(scores[3])+',',str(scores[4])+',',str(scores[5]))
+	description('Your race buffs are +'+str(asi[0])+' to Strength, +'+str(asi[1])+' to Dexterity, +'+str(asi[2])+' to Constitution, +'+str(asi[3])+' to Wisdom, +'+str(asi[4])+' to Intelligence, and +'+str(asi[5])+' to Charisma')
 	strength=int(query('Which score would you like to use for strength? '))
 	while strength not in scores:
 		strength=int(query('That\'s not an available score. Which score would you like to use for strength? '))
@@ -688,13 +688,13 @@ def characterCreation(recRace, recClass,backstory):
 	constitution+=asi[2]
 	wisdom+=asi[3]
 	intelligence+=asi[4]
-	print('Your scores are: ')
-	print('Strength:',strength)
-	print('Dexterity:',dexterity)
-	print('Constitution:',constitution)
-	print('Wisdom:',wisdom)
-	print('Intelligence:',intelligence)
-	print('Charisma:',charisma)
+	description_nospace('Your scores are: ')
+	description_nospace('Strength:',strength)
+	description_nospace('Dexterity:',dexterity)
+	description_nospace('Constitution:',constitution)
+	description_nospace('Wisdom:',wisdom)
+	description_nospace('Intelligence:',intelligence)
+	description('Charisma:',charisma)
 	playerName=query('What is your name? ')
 	characterName=query('What would you like to name your character?')
 

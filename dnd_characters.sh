@@ -3,4 +3,4 @@
 NLTK_DATA="$PWD/ml-magic"
 export NLTK_DATA
 
-python cli.py
+python3 cli.py
