@@ -36,6 +36,7 @@ def elf():
 		superiorDarkvision=False
 		drowMagic=False
 		drowWeaponTraining=False
+		sunlightSensitivity=False
 	elif subType.lower()=='wood':
 		asi[2]=1
 		elfWeaponTraining=True
@@ -46,6 +47,7 @@ def elf():
 		superiorDarkvision=False
 		drowMagic=False
 		drowWeaponTraining=False
+		sunlightSensitivity=False
 	else:
 		asi[5]=1
 		superiorDarkvision=True
