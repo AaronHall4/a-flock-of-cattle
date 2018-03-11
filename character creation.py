@@ -1,3 +1,5 @@
+import random
+
 def dwarf():
 	asi=[0,0,2,0,0,0]
 	subType=str(input('Would you like to be a Hill Dwarf or a Mountain Dwarf? (Hill or Mountain)'))
@@ -293,7 +295,7 @@ def characterCreation(recRace, recClass):
 	if userClass=='barbarian':
 		hitDice=12
 		hpMax+=12
-		if subType!='mountain'):
+		if subType!='mountain':
 			proficiences+=['light armor','medium armor']
 		proficiences+=['shields','simple weapons','martial weapons']
 		savingThrows=[0,2]
@@ -455,6 +457,7 @@ def characterCreation(recRace, recClass):
 		savingThrows=[0,1]
 		skillOne=str(input('Choose a skill from the following: Acrobatics, Athletics, History, Insight, Religion, or Stealth'))
 		skillTwo=str(input('Choose a different skill from the above: '))
+		proficiences+=[skillOne,skillTwo]
 		print('For the next few options, enter 1 to choose the first option, and 2 to choose the second.')
 		equipmentChoice=input('Would you like a shortsword or any simple weapon? ')
 		if equipmentChoice==1:
@@ -474,6 +477,7 @@ def characterCreation(recRace, recClass):
 		savingThrows=[3,5]
 		skillOne=str(input('Choose a skill from the following: Atheltics, Insight, Intimidation, Medicine, Persuasion, or Religion'))
 		skillTwo=str(input('Choose a different skill from the above: '))
+		proficiences+=[skillOne,skillTwo]
 		print('For the next few options, enter 1 to choose the first option, and 2 to choose the second.')
 		equipmentChoice=input('Would you like a martial weapon and a shield or 2 martial weapons?')
 		if equipmentChoice==1:
@@ -503,6 +507,7 @@ def characterCreation(recRace, recClass):
 		skillOne=str(input('Choose a skill from the following: Animal Handling, Atheltics, Insight, Investigation, Nature, Perception, Stealth, or Survival'))
 		skillTwo=str(input('Choose a different skill from the above: '))
 		skillThree=str(input('Choose a third skill from the above: '))
+		proficiences+=[skillOne,skillTwo,skillThree]
 		print('For the next few options, enter 1 to choose the first option, and 2 to choose the second.')
 		equipmentChoice=input('Would you like scale mail or leather armor?')
 		if equipmentChoice==1:
@@ -540,6 +545,7 @@ def characterCreation(recRace, recClass):
 		skillTwo=str(input('Choose a different skill from the above: '))
 		skillThree=str(input('Choose a third skill from the above: '))
 		skillFour=str(input('Choose a fourth skill from the above: '))
+		proficiences+=[skillOne,skillTwo,skillThree,skillFour]
 		print('For the next few options, enter 1 to choose the first option, 2 to choose the second, and 3 if you want the third')
 		equipmentChoice=input('Would you like a rapier or a shortsword?')
 		if equipmentChoice==1:
@@ -564,8 +570,9 @@ def characterCreation(recRace, recClass):
 		hpMax+=6
 		proficiences+=['dagger','dart','sling','quarterstaff','light crossbow']
 		savingThrows=[2,5]
-		skillOne=str(input('Choose a skill from the following: Arcana, Deception, Insight, Intimidation, Persuasion, Religion'))
+		skillOne=str(input('Choose a skill from the following: Arcana, Deception, Insight, Intimidation, Persuasion, or Religion'))
 		skillTwo=str(input('Choose a different skill from the above: '))
+		proficiences+=[skillOne,skillTwo]
 		print('For the next few options, enter 1 to choose the first option, 2 to choose the second, and 3 if you want the third')
 		equipmentChoice=input('Would you like a light crossbow and 20 bolts or any simple weapon')
 		if equipmentChoice==1:
@@ -586,8 +593,52 @@ def characterCreation(recRace, recClass):
 	if userClass=='warlock':
 		hitDice=8
 		hpMax+=8
+		if 'light armor' not in proficiences:
+			proficiences+=['light armor']
+		proficiences+=['simple weapons']
+		savingThrows=[3,5]
+		skillOne=str(input('Choose a skill from the following: Arcana, Deception, History, Intimidation, Investigation, History, or Religion'))
+		skillTwo=str(input('Choose a different skill from the above: '))
+		proficiences+=[skillOne,skillTwo]
+		print('For the next few options, enter 1 to choose the first option, 2 to choose the second, and 3 if you want the third')
+		equipmentChoice=input('Would you like a light crossbow and 20 bolts or any simple weapon')
+		if equipmentChoice==1:
+			equipment+=['light crossbow','20 bolts']
+		else:
+			equipment+=['any simple weapon']
+		equipmentChoice=input('Would you like a component pouch or an arcane focus? ')
+		if equipmentChoice==1:
+			equipment+=['component pouch']
+		else:
+			equipment+=['arcane focus']
+		equipmentChoice=input('Would you like a dungeoneer\'s pack, or a scholar\'s pack? ')
+		if equipmentChoice==1:
+			equipment+=['dungeoneer\'s pack']
+		else:
+			equipment+=['scholar\'s pack']
+		equipment+=['leather armor','any simple weapon','two daggers']
 	if userClass=='wizard':
 		hitDice=6
 		hpMax+=6
-
-
+		proficiences+=['dagger','dart','sling','quarterstaff','light crossbow']
+		savingThrows=[3,4]
+		skillOne=str(input('Choose a skill from the following: Arcana, History, Insight, Investigation, Medicine, or Religion'))
+		skillTwo=str(input('Choose a different skill from the above: '))
+		proficiences+=[skillOne,skillTwo]
+		print('For the next few options, enter 1 to choose the first option, 2 to choose the second, and 3 if you want the third')
+		equipmentChoice=input('Would you like a quarterstaff or a dagger')
+		if equipmentChoice==1:
+			equipment+=['quarterstaff']
+		else:
+			equipment+=['dagger']
+		equipmentChoice=input('Would you like a component pouch or an arcane focus? ')
+		if equipmentChoice==1:
+			equipment+=['component pouch']
+		else:
+			equipment+=['arcane focus']
+		equipmentChoice=input('Would you like a explorer\'s pack, or a scholar\'s pack? ')
+		if equipmentChoice==1:
+			equipment+=['explorer\'s pack']
+		else:
+			equipment+=['scholar\'s pack']
+		equipment+=['a spellbook']
