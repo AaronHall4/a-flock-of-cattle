@@ -26,7 +26,7 @@ def main():
 		race_pipeline = pickle.load(f)
 		f.close()
 		
-	pp.head('Welcome to the ')
+	pp.head('Welcome to the D&D Character Setup Helper!')
 
 	pp.description(
 """This is a tool to help walk beginning players through the process of
@@ -41,15 +41,10 @@ suggestions for how to design your character.""")
 	suggested_race = race_lut[race_pipeline.predict([backstory])[0]]
 	suggested_class = class_lut[class_pipeline.predict([backstory])[0]]
 
-	# cc.characterCreation(suggested_race, suggested_class, backstory)
+	cc.characterCreation(suggested_race, suggested_class, backstory)
 
-	pp.description(suggested_class)
-	pp.description(suggested_race)
-
-
-
-
-
+	# pp.description(suggested_class)
+	# pp.description(suggested_race)
 
 
 if __name__ == '__main__':
