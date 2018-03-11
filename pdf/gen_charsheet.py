@@ -76,13 +76,14 @@ fields = [('ClassLevel','Hello'),
           ('Weight','Blast off'),
           ('Eyes','Yes, please'),
           ('Skin','No thanks'),
+          ('Hair','Heir'),
           ('Allies','Axis'),
           ('FactionName','Our Cabinet\'s fractured into factions.'),
           ('Backstory','THE WHOLE FUCKING POINT OF THIS THING!!!!!!1111!!11!!11'),
-          ('Feat+Traits','Hands'),
+          ('Feat+Traits','Hands')
           ]
 fdf = forge_fdf("", fields, [], [], [])
 fdf_file = open("char_sheet.fdf", "w")
 fdf_file.write(fdf)
 fdf_file.close()
-os.system("pdftk CharacterSheet_3Pgs_\ Complete.pdf fill_form char_sheet.fdf output char_sheet.pdf")
+os.system("pdftk EmptyCharacterSheet.pdf fill_form char_sheet.fdf output char_sheet.pdf")
