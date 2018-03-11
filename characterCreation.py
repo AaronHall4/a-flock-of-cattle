@@ -1,4 +1,4 @@
-import random
+from random import randint
 from prettyprinters import query
 from fdfgen import forge_fdf
 import os
@@ -770,7 +770,7 @@ def characterCreation(recRace, recClass,backstory):
 		  ('CHamod',str(chaMod)),
 		  ('Survival',str(wisMod + (2 if 'Survival' in proficiencies else 0))),
 		  ('Passive',str(10 + wisMod + (2 if 'Perception' in proficiencies else 0))),
-		  ('ProficienciesLang',', '.join(proficiencies + languages),
+		  ('ProficienciesLang',', '.join(proficiencies + languages)),
 		  ('Equipment',', '.join(equipment)),
 		  ('Features and Traits',', '.join(attributes)),
 		  ('CharacterName 2',characterName),
@@ -805,4 +805,5 @@ def characterCreation(recRace, recClass,backstory):
 	fdf_file.close()
 	os.system("pdftk EmptyCharacterSheet.pdf fill_form char_sheet.fdf output char_sheet.pdf")
 
+characterCreation('elf','warlock','I did shit')
 
