@@ -12,10 +12,13 @@ def query(text):
 	return res
 
 def description(text):
-	# puts('')
 	with indent(4):
 		puts(colored.green(text))
 	puts('')
+
+def description_nospace(text):
+	with indent(4):
+		puts(colored.green(text))
 
 def head(text):
 	puts('')
