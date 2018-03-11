@@ -181,7 +181,7 @@ def characterCreation(recRace, recClass,backstory):
 			elif userRace.lower()=='other':
 				userRace=str(query('Would you like to be a dwarf, elf, halfling, human, dragonborn, gnome, half-elf, half-orc, or tiefling? '))
 				userRace=userRace.lower()
-	proficiences=[]
+	proficiencies=[]
 	attributes=[]
 	languages=[]
 	cantrips=[]
@@ -193,22 +193,22 @@ def characterCreation(recRace, recClass,backstory):
 		if results[7]:
 			hpMax=1
 		if results[8]:
-			proficiences+=['light armor','medium armor']
+			proficiencies+=['light armor','medium armor']
 		walkingSpeed=25
 		tools=['smith','brewer','mason']
 		toolProficiency=str(query('Would you like proficiency in smith\'s tools, brewer\'s tools, or artisans\'s tools '))
 		while toolProficiency.lower() not in tools:
 			toolProficiency=str(query('Would you like proficiency in smith\'s tools, brewer\'s tools, or artisans\' tools '))
-		proficiences+=[toolProficiency.lower(),'battleaxe','handaxe','throwing hammer','warhammer']
+		proficiencies+=[toolProficiency.lower(),'battleaxe','handaxe','throwing hammer','warhammer']
 		attributes+=['darkvision','Dwarven Resilience','Stonecunning']
 		languages+=['Common','Dwarvish']
 	elif userRace=='elf':
 		results=elf()
 		asi=results[0:6]
-		subType=results[6]
-		walkingSpeed=results[7]
+		subType=results[7]
+		walkingSpeed=results[6]
 		if results[8]:
-			proficiences+=['longsword','shortsword','shortbow','longbow']
+			proficiencies+=['longsword','shortsword','shortbow','longbow']
 		if results[9]:
 			cantrips+=[str(query('Pick a wizard cantrip to know: '))]
 		if results[10]:
@@ -222,7 +222,7 @@ def characterCreation(recRace, recClass,backstory):
 		if results[13]:
 			cantrips+=['Dancing Lights']
 		if results[14]:
-			proficiences+=['rapier','shortsword','hand crossbow']
+			proficiencies+=['rapier','shortsword','hand crossbow']
 		if results[15]:
 			attributes+=['Sunlight Sensitivity']
 		attributes+=['Keen Senses','Fey Ancestry','Trance']
@@ -266,7 +266,7 @@ def characterCreation(recRace, recClass,backstory):
 	elif userRace=='half-elf':
 		results=halfelf()
 		asi=results[0:6]
-		proficiences+=results[6:8]
+		proficiencies+=results[6:8]
 		languages+=results[8]
 		languages+=['Common','Elvish']
 		attributes+=['Darkvision','Fey Ancestry']
@@ -275,7 +275,7 @@ def characterCreation(recRace, recClass,backstory):
 		asi=[2,0,1,0,0,0]
 		walkingSpeed=30
 		attributes+=['Darkvision','Relentless Endurance','Savage Attacks']
-		proficiences+=['Intimidation']
+		proficiencies+=['Intimidation']
 		languages+=['Common','Orc']
 	else:
 		asi=[0,0,0,0,1,2]
@@ -305,14 +305,14 @@ def characterCreation(recRace, recClass,backstory):
 		hitDice=12
 		hpMax+=12
 		if subType!='mountain':
-			proficiences+=['light armor','medium armor']
-		proficiences+=['shields','simple weapons','martial weapons']
+			proficiencies+=['light armor','medium armor']
+		proficiencies+=['shields','simple weapons','martial weapons']
 		savingThrows=[0,2]
 		skillOne=str(query('Choose one of the following: Animal Handling, Intimidation, Nature, Perception, and Survival '))
 		skillTwo=str(query('Choose another one of those skills'))
 		while skillOne.lower()==skillTwo.lower():
 			skillTwo=str(query('Choose a different one of those skills'))
-		proficiences+=[skillOne,skillTwo]
+		proficiencies+=[skillOne,skillTwo]
 		print('For the next few options, enter 1 to choose the first option, and 2 to choose the second.')
 		equipmentChoice=query('Would you like a greataxe or any martial melee weapon?')
 		if equipmentChoice==1:
@@ -329,21 +329,21 @@ def characterCreation(recRace, recClass,backstory):
 	if userClass=='bard':
 		hitDice=8
 		hpMax+=8
-		if 'light armor' not in proficiences:
-			proficiences+=['light armor']
-		proficiences+='simple weapons'
-		if 'hand crossbow' not in proficiences:
-			proficiences+=['hand crossbow']
-		if 'longsword' not in proficiences:
-			proficiences+=['longsword']
-		if 'rapier' not in proficiences:
-			proficiences+=['rapier']
-		if 'shortsword' not in proficiences:
-			proficiences+=['shortsword']
+		if 'light armor' not in proficiencies:
+			proficiencies+=['light armor']
+		proficiencies+='simple weapons'
+		if 'hand crossbow' not in proficiencies:
+			proficiencies+=['hand crossbow']
+		if 'longsword' not in proficiencies:
+			proficiencies+=['longsword']
+		if 'rapier' not in proficiencies:
+			proficiencies+=['rapier']
+		if 'shortsword' not in proficiencies:
+			proficiencies+=['shortsword']
 		savingThrows=[1,5]
-		proficiences+=[str(query('Choose a musical instrument to become proficient in:'))]
-		proficiences+=[str(query('Choose another musical instrument to become proficient in:'))]
-		proficiences+=[str(query('Choose a third musical instrument to become proficient in:'))]
+		proficiencies+=[str(query('Choose a musical instrument to become proficient in:'))]
+		proficiencies+=[str(query('Choose another musical instrument to become proficient in:'))]
+		proficiencies+=[str(query('Choose a third musical instrument to become proficient in:'))]
 		skillOne=str(query('Choose a skill you\'re not already proficient in: '))
 		skillTwo=str(query('Choose a different skill you\'re not already proficient in: '))
 		skillThree=str(query('Choose a third skill you\'re not already proficient in '))
@@ -369,18 +369,18 @@ def characterCreation(recRace, recClass,backstory):
 	if userClass=='cleric':
 		hitDice=8
 		hpMax+=8
-		if 'light armor' not in proficiences:
-			proficiences+=['light armor']
-		if 'medium armor' not in proficiences:
-			proficiences+=['medium armor']
-		proficiences+=['shields']
-		proficiences+=['all simple weapons']
+		if 'light armor' not in proficiencies:
+			proficiencies+=['light armor']
+		if 'medium armor' not in proficiencies:
+			proficiencies+=['medium armor']
+		proficiencies+=['shields']
+		proficiencies+=['all simple weapons']
 		savingThrows=[3,5]
 		skillOne=str(query('Choose a skill: History, Insight, Medicine, Persuasion, or Religion '))
 		skillTwo=str(query('Choose another skill from above:'))
 		while skillTwo.lower()==skillOne.lower():
 			skillTwo=str(query('Choose another skill from above:'))
-		proficiences+=[skillOne,skillTwo]
+		proficiencies+=[skillOne,skillTwo]
 		print('For the next few options, enter 1 to choose the first option, and 2 to choose the second.')
 		equipmentChoice=query('Would you like a Mace or a Warhammer (choose warhammer only if you\'re a Dwarf) ')
 		if equipmentChoice==1:
@@ -406,15 +406,15 @@ def characterCreation(recRace, recClass,backstory):
 	if userClass=='druid':
 		hitDice=8
 		hpMax+=8
-		if 'light armor' not in proficiences:
-			proficiences+=['light armor']
-		if 'medium armor' not in proficiences:
-			proficiences+=['medium armor']
-		proficiences+=['shield','club','dagger','dart','javelin','mace','quarterstaff','scimitar','sickle','sling','spear','herbalism kit']
+		if 'light armor' not in proficiencies:
+			proficiencies+=['light armor']
+		if 'medium armor' not in proficiencies:
+			proficiencies+=['medium armor']
+		proficiencies+=['shield','club','dagger','dart','javelin','mace','quarterstaff','scimitar','sickle','sling','spear','herbalism kit']
 		savingThrows=[3,4]
 		skillOne=str(query('Choose a skill from the following: Arcana, Animal Handling, Insight, Medicine, Nature, Perception, Religion, Survival'))
 		skillTwo=str(query('Choose a different skill from the above: '))
-		proficiences+=[skillOne,skillTwo]
+		proficiencies+=[skillOne,skillTwo]
 		print('For the next few options, enter 1 to choose the first option, and 2 to choose the second.')
 		equipmentChoice=query('Would you like a wooden shield or any simple weapon? ')
 		if equipmentChoice==1:
@@ -430,11 +430,11 @@ def characterCreation(recRace, recClass,backstory):
 	if userClass=='fighter':
 		hitDice=10
 		hpMax+=10
-		proficiences+=['armor','shields','simple weapons','martial weapons']
+		proficiencies+=['armor','shields','simple weapons','martial weapons']
 		savingThrows=[0,2]
 		skillOne=str(query('Choose a skill from the following: Acrobatics, Animal Handling, Athletics, History, Insight, Intimidation, Perception, or Survival'))
 		skillTwo=str(query('Choose a different skill from the above: '))
-		proficiences+=[skillOne,skillTwo]
+		proficiencies+=[skillOne,skillTwo]
 		print('For the next few options, enter 1 to choose the first option, and 2 to choose the second.')
 		equipmentChoice=query('Would you like chain mail or leather armor, a longbow, and 20 arrows? ')
 		if equipmentChoice==1:
@@ -459,14 +459,14 @@ def characterCreation(recRace, recClass,backstory):
 	if userClass=='monk':
 		hitDice=8
 		hpMax+=8
-		proficiences+=['simple weapons']
-		if 'shortsword' not in proficiences:
-			proficiences+=['shortsword']
-		proficiences+=[str(query('Choose a type of artisan\'s tools or a musical instrument to be proficient with: '))]
+		proficiencies+=['simple weapons']
+		if 'shortsword' not in proficiencies:
+			proficiencies+=['shortsword']
+		proficiencies+=[str(query('Choose a type of artisan\'s tools or a musical instrument to be proficient with: '))]
 		savingThrows=[0,1]
 		skillOne=str(query('Choose a skill from the following: Acrobatics, Athletics, History, Insight, Religion, or Stealth'))
 		skillTwo=str(query('Choose a different skill from the above: '))
-		proficiences+=[skillOne,skillTwo]
+		proficiencies+=[skillOne,skillTwo]
 		print('For the next few options, enter 1 to choose the first option, and 2 to choose the second.')
 		equipmentChoice=query('Would you like a shortsword or any simple weapon? ')
 		if equipmentChoice==1:
@@ -482,11 +482,11 @@ def characterCreation(recRace, recClass,backstory):
 	if userClass=='paladin':
 		hitDice=10
 		hpMax+=10
-		proficiences+=['armor','shields','simple weapons','martial weapons']
+		proficiencies+=['armor','shields','simple weapons','martial weapons']
 		savingThrows=[3,5]
 		skillOne=str(query('Choose a skill from the following: Atheltics, Insight, Intimidation, Medicine, Persuasion, or Religion'))
 		skillTwo=str(query('Choose a different skill from the above: '))
-		proficiences+=[skillOne,skillTwo]
+		proficiencies+=[skillOne,skillTwo]
 		print('For the next few options, enter 1 to choose the first option, and 2 to choose the second.')
 		equipmentChoice=query('Would you like a martial weapon and a shield or 2 martial weapons?')
 		if equipmentChoice==1:
@@ -507,16 +507,16 @@ def characterCreation(recRace, recClass,backstory):
 	if userClass=='ranger':
 		hitDice=10
 		hpMax+=10
-		if 'light armor' not in proficiences:
-			proficiences+=['light armor']
-		if 'medium armor' not in proficiences:
-			proficiences+=['medium armor']
-		proficiences+=['shields']
+		if 'light armor' not in proficiencies:
+			proficiencies+=['light armor']
+		if 'medium armor' not in proficiencies:
+			proficiencies+=['medium armor']
+		proficiencies+=['shields']
 		savingThrows=[0,1]
 		skillOne=str(query('Choose a skill from the following: Animal Handling, Atheltics, Insight, Investigation, Nature, Perception, Stealth, or Survival'))
 		skillTwo=str(query('Choose a different skill from the above: '))
 		skillThree=str(query('Choose a third skill from the above: '))
-		proficiences+=[skillOne,skillTwo,skillThree]
+		proficiencies+=[skillOne,skillTwo,skillThree]
 		print('For the next few options, enter 1 to choose the first option, and 2 to choose the second.')
 		equipmentChoice=query('Would you like scale mail or leather armor?')
 		if equipmentChoice==1:
@@ -537,24 +537,24 @@ def characterCreation(recRace, recClass,backstory):
 	if userClass=='rogue':
 		hitDice=8
 		hpMax+=8
-		if 'light armor' not in proficiences:
-			proficiences+=['light armor']
-		proficiences+=['simple weapons']
-		if 'hand crossbow' not in proficiences:
-			proficiences+=['hand crossbow']
-		if 'longsword' not in proficiences:
-			proficiences+=['longsword']
-		if 'rapier' not in proficiences:
-			proficiences+=['rapier']
-		if 'shortsword' not in proficiences:
-			proficiences+=['shortsword']
-		proficiences+=['thieves\' tools']
+		if 'light armor' not in proficiencies:
+			proficiencies+=['light armor']
+		proficiencies+=['simple weapons']
+		if 'hand crossbow' not in proficiencies:
+			proficiencies+=['hand crossbow']
+		if 'longsword' not in proficiencies:
+			proficiencies+=['longsword']
+		if 'rapier' not in proficiencies:
+			proficiencies+=['rapier']
+		if 'shortsword' not in proficiencies:
+			proficiencies+=['shortsword']
+		proficiencies+=['thieves\' tools']
 		savingThrows=[1,4]
 		skillOne=str(query('Choose a skill from the following: Acrobatics, Athletics, Deception, Insight, Intimidation, Investigation, Perception, Performance, Persuasion, Sleight of Hand, or Stealth'))
 		skillTwo=str(query('Choose a different skill from the above: '))
 		skillThree=str(query('Choose a third skill from the above: '))
 		skillFour=str(query('Choose a fourth skill from the above: '))
-		proficiences+=[skillOne,skillTwo,skillThree,skillFour]
+		proficiencies+=[skillOne,skillTwo,skillThree,skillFour]
 		print('For the next few options, enter 1 to choose the first option, 2 to choose the second, and 3 if you want the third')
 		equipmentChoice=query('Would you like a rapier or a shortsword?')
 		if equipmentChoice==1:
@@ -577,11 +577,11 @@ def characterCreation(recRace, recClass,backstory):
 	if userClass=='sorcerer':
 		hitDice=6
 		hpMax+=6
-		proficiences+=['dagger','dart','sling','quarterstaff','light crossbow']
+		proficiencies+=['dagger','dart','sling','quarterstaff','light crossbow']
 		savingThrows=[2,5]
 		skillOne=str(query('Choose a skill from the following: Arcana, Deception, Insight, Intimidation, Persuasion, or Religion'))
 		skillTwo=str(query('Choose a different skill from the above: '))
-		proficiences+=[skillOne,skillTwo]
+		proficiencies+=[skillOne,skillTwo]
 		print('For the next few options, enter 1 to choose the first option, 2 to choose the second, and 3 if you want the third')
 		equipmentChoice=query('Would you like a light crossbow and 20 bolts or any simple weapon')
 		if equipmentChoice==1:
@@ -602,13 +602,13 @@ def characterCreation(recRace, recClass,backstory):
 	if userClass=='warlock':
 		hitDice=8
 		hpMax+=8
-		if 'light armor' not in proficiences:
-			proficiences+=['light armor']
-		proficiences+=['simple weapons']
+		if 'light armor' not in proficiencies:
+			proficiencies+=['light armor']
+		proficiencies+=['simple weapons']
 		savingThrows=[3,5]
 		skillOne=str(query('Choose a skill from the following: Arcana, Deception, History, Intimidation, Investigation, History, or Religion'))
 		skillTwo=str(query('Choose a different skill from the above: '))
-		proficiences+=[skillOne,skillTwo]
+		proficiencies+=[skillOne,skillTwo]
 		print('For the next few options, enter 1 to choose the first option, 2 to choose the second, and 3 if you want the third')
 		equipmentChoice=query('Would you like a light crossbow and 20 bolts or any simple weapon')
 		if equipmentChoice==1:
@@ -629,11 +629,11 @@ def characterCreation(recRace, recClass,backstory):
 	if userClass=='wizard':
 		hitDice=6
 		hpMax+=6
-		proficiences+=['dagger','dart','sling','quarterstaff','light crossbow']
+		proficiencies+=['dagger','dart','sling','quarterstaff','light crossbow']
 		savingThrows=[3,4]
 		skillOne=str(query('Choose a skill from the following: Arcana, History, Insight, Investigation, Medicine, or Religion'))
 		skillTwo=str(query('Choose a different skill from the above: '))
-		proficiences+=[skillOne,skillTwo]
+		proficiencies+=[skillOne,skillTwo]
 		print('For the next few options, enter 1 to choose the first option, 2 to choose the second, and 3 if you want the third')
 		equipmentChoice=query('Would you like a quarterstaff or a dagger')
 		if equipmentChoice==1:
@@ -724,10 +724,23 @@ def characterCreation(recRace, recClass,backstory):
 	elif 'wooden shield' in equipment:
 		AC+=2
 
+	profAndLang = proficiencies + languages
+	for skill in ['Acrobatics', 'Animal Handling', 'Arcana', 'Athletics', 'Deception', 'History', 'Insight', 'Intimidation', 'Investigation', 'Medicine', 'Nature', 'Perception', 'Performance', 'Persuasion', 'Religion', 'Sleight of Hand', 'Stealth', 'Survival']:
+		try:
+			profAndLang.remove(skill)
+		except ValueError:
+			pass
+
+	raceString = ""
+	try:
+		raceString = userRace + ' (' + subType + ')'
+	except NameError:
+		raceString = userRace
+
 	fields = [('ClassLevel', userClass + " 1"),
 		  ('PlayerName',playerName),
 		  ('CharacterName',characterName),
-		  ('Race ',userRace + ' (' + subType + ')'),
+		  ('Race ',raceString),
 		  ('XP','0'),
 		  ('STR',str(strength)),
 		  ('ProfBonus','+2'),
@@ -772,7 +785,7 @@ def characterCreation(recRace, recClass,backstory):
 		  ('CHamod',str(chaMod)),
 		  ('Survival',str(wisMod + (2 if 'Survival' in proficiencies else 0))),
 		  ('Passive',str(10 + wisMod + (2 if 'Perception' in proficiencies else 0))),
-		  ('ProficienciesLang',', '.join(proficiencies + languages)),
+		  ('ProficienciesLang',', '.join(profAndLang)),
 		  ('Equipment',', '.join(equipment)),
 		  ('Features and Traits',', '.join(attributes)),
 		  ('CharacterName 2',characterName),
