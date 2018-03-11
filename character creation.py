@@ -99,6 +99,8 @@ def dragonborn():
 		damageType='Poison'
 	asi[6]=damageType
 	asi[7]=ancestry
+	return asi
+	
 def gnome():
 	asi=[0,0,0,0,2,0]
 	subType=str(input('Would you like to be a Forest Gnome or a Rock Gnome? (Forest or Rock)'))
@@ -121,6 +123,7 @@ def gnome():
 	asi[9]=artificersLore
 	asi[10]=tinker
 	asi[6]=subType
+	return asi
 
 def halfelf():
 	asi=[0,0,0,0,0,2]
@@ -150,6 +153,7 @@ def halfelf():
 	asi[6]=skillOne
 	asi[7]=skillTwo
 	asi[8]=language
+	return asi
 
 
 def characterCreation(recRace, recClass):
@@ -642,3 +646,11 @@ def characterCreation(recRace, recClass):
 		else:
 			equipment+=['scholar\'s pack']
 		equipment+=['a spellbook']
+
+	scores=[]
+	for i in xrange(6):
+		nums=[]
+		for i in xrange(4):
+			nums.append(randint(1,6))
+		nums[nums.index(min(nums))]=0
+		scores.append(sum(nums))
