@@ -26,7 +26,7 @@ def main():
 		race_pipeline = pickle.load(f)
 		f.close()
 		
-	pp.head('Welcome to ')
+	pp.head('Welcome to the ')
 
 	pp.description(
 """This is a tool to help walk beginning players through the process of
@@ -45,13 +45,6 @@ suggestions for how to design your character.""")
 
 	pp.description(suggested_class)
 	pp.description(suggested_race)
-	
-
-
-
-
-
-
 
 
 
