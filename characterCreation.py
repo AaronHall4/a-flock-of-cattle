@@ -807,4 +807,4 @@ def characterCreation(recRace, recClass,backstory):
 	fdf_file.close()
 	os.system("pdftk EmptyCharacterSheet.pdf fill_form char_sheet.fdf output char_sheet.pdf")
 
-characterCreation('elf','warlock','I did shit')
+# characterCreation('elf','warlock','I did shit')
