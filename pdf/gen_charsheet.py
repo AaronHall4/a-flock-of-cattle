@@ -215,128 +215,38 @@ fields = [
           ('Spells 101012','Hello209'),
           ('Spells 101013','Hello210'),
 
-          ('Check Box 12','No'), # Success Save 1
-          ('Check Box 13','No'), # Success Save 2
-          ('Check Box 14','No'), # Success Save 3
-          ('Check Box 15','No'), # Failure Save 1
-          ('Check Box 16','No'), # Failure Save 2
-          ('Check Box 17','No'), # Failure Save 3
-          ('Check Box 11','No'), # Strength ST Prof
-          ('Check Box 18','No'), # Dexterity ST Prof
-          ('Check Box 19','No'), # Constitution ST Prof
-          ('Check Box 20','No'), # Intelligence ST Prof
-          ('Check Box 21','No'), # Wisdom ST Prof
-          ('Check Box 22','No'), # Charisma ST Prof
-          ('Check Box 23','No'), # Acrobatics Prof
+          ('Check Box 12','Yes'), # Success Save 1
+          ('Check Box 13','Yes'), # Success Save 2
+          ('Check Box 14','Yes'), # Success Save 3
+          ('Check Box 15','Yes'), # Failure Save 1
+          ('Check Box 16','Yes'), # Failure Save 2
+          ('Check Box 17','Yes'), # Failure Save 3
+
+          ('Check Box 11','Yes'), # Strength ST Prof
+          ('Check Box 18','Yes'), # Dexterity ST Prof
+          ('Check Box 19','Yes'), # Constitution ST Prof
+          ('Check Box 20','Yes'), # Intelligence ST Prof
+          ('Check Box 21','Yes'), # Wisdom ST Prof
+          ('Check Box 22','Yes'), # Charisma ST Prof
+
+          ('Check Box 23','Yes'), # Acrobatics Prof
           ('Check Box 24','Yes'), # Animal Handling Prof
-          ('Check Box 25','No'),
-          ('Check Box 26','No'),
-          ('Check Box 27','No'),
-          ('Check Box 28','No'),
-          ('Check Box 29','No'),
-          ('Check Box 30','No'),
-          ('Check Box 31','No'),
-          ('Check Box 32','No'),
-          ('Check Box 33','No'),
-          ('Check Box 34','No'),
-          ('Check Box 35','No'),
-          ('Check Box 36','No'),
-          ('Check Box 37','No'),
-          ('Check Box 38','No'),
-          ('Check Box 39','No'),
-          ('Check Box 40','No'),
-          ('Check Box 314','No'),
-          ('Check Box 3031','No'),
-          ('Check Box 3032','No'),
-          ('Check Box 3033','No'),
-          ('Check Box 3034','No'),
-          ('Check Box 3035','No'),
-          ('Check Box 3036','No'),
-          ('Check Box 3037','No'),
-          ('Check Box 3038','No'),
-          ('Check Box 3039','No'),
-          ('Check Box 3040','No'),
-          ('Check Box 321','No'),
-          ('Check Box 320','No'),
-          ('Check Box 3060','No'),
-          ('Check Box 3061','No'),
-          ('Check Box 3062','No'),
-          ('Check Box 3063','No'),
-          ('Check Box 3064','No'),
-          ('Check Box 3065','No'),
-          ('Check Box 3066','No'),
-          ('Check Box 315','No'),
-          ('Check Box 3041','No'),
-          ('Check Box 251','No'),
-          ('Check Box 309','No'),
-          ('Check Box 3010','No'),
-          ('Check Box 3011','No'),
-          ('Check Box 3012','No'),
-          ('Check Box 3013','No'),
-          ('Check Box 3014','No'),
-          ('Check Box 3015','No'),
-          ('Check Box 3016','No'),
-          ('Check Box 3017','No'),
-          ('Check Box 3018','No'),
-          ('Check Box 3019','No'),
-          ('Check Box 323','No'),
-          ('Check Box 322','No'),
-          ('Check Box 3067','No'),
-          ('Check Box 3068','No'),
-          ('Check Box 3069','No'),
-          ('Check Box 3070','No'),
-          ('Check Box 3071','No'),
-          ('Check Box 3072','No'),
-          ('Check Box 3073','No'),
-          ('Check Box 317','No'),
-          ('Check Box 316','No'),
-          ('Check Box 3042','No'),
-          ('Check Box 3043','No'),
-          ('Check Box 3044','No'),
-          ('Check Box 3045','No'),
-          ('Check Box 3046','No'),
-          ('Check Box 3047','No'),
-          ('Check Box 3048','No'),
-          ('Check Box 3049','No'),
-          ('Check Box 3050','No'),
-          ('Check Box 3051','No'),
-          ('Check Box 3052','No'),
-          ('Check Box 325','No'),
-          ('Check Box 324','No'),
-          ('Check Box 3074','No'),
-          ('Check Box 3075','No'),
-          ('Check Box 3076','No'),
-          ('Check Box 3077','No'),
-          ('Check Box 3078','No'),
-          ('Check Box 313','No'),
-          ('Check Box 310','No'),
-          ('Check Box 3020','No'),
-          ('Check Box 3021','No'),
-          ('Check Box 3022','No'),
-          ('Check Box 3023','No'),
-          ('Check Box 3024','No'),
-          ('Check Box 3025','No'),
-          ('Check Box 3026','No'),
-          ('Check Box 3027','No'),
-          ('Check Box 3028','No'),
-          ('Check Box 3029','No'),
-          ('Check Box 3030','No'),
-          ('Check Box 319','No'),
-          ('Check Box 318','No'),
-          ('Check Box 3053','No'),
-          ('Check Box 3054','No'),
-          ('Check Box 3055','No'),
-          ('Check Box 3056','No'),
-          ('Check Box 3057','No'),
-          ('Check Box 3058','No'),
-          ('Check Box 3059','No'),
-          ('Check Box 327','No'),
-          ('Check Box 326','No'),
-          ('Check Box 3079','No'),
-          ('Check Box 3080','No'),
-          ('Check Box 3081','No'),
-          ('Check Box 3082','No'),
-          ('Check Box 3083','No'),
+          ('Check Box 25','Yes'), # Arcana Prof
+          ('Check Box 26','Yes'), # Athletics Prof
+          ('Check Box 27','Yes'), # Deception Prof
+          ('Check Box 28','Yes'), # History Prof
+          ('Check Box 29','Yes'), # Insight Prof
+          ('Check Box 30','Yes'), # Intimidation Prof
+          ('Check Box 31','Yes'), # Investigation Prof
+          ('Check Box 32','Yes'), # Medicine Prof
+          ('Check Box 33','Yes'), # Nature Prof
+          ('Check Box 34','Yes'), # Perception Prof
+          ('Check Box 35','Yes'), # Performance Prof
+          ('Check Box 36','Yes'), # Persuasion Prof
+          ('Check Box 37','Yes'), # Religion Prof
+          ('Check Box 38','Yes'), # Sleight of Hand Prof
+          ('Check Box 39','Yes'), # Stealth Prof
+          ('Check Box 40','Yes'), # Survival Prof
           ]
 fdf = forge_fdf("", fields, [], [], [])
 fdf_file = open("char_sheet.fdf", "wb")
